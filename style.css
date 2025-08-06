@@ -240,136 +240,374 @@ main {
 /* Skill section CSS */
 #skill-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-top: 20rem; /* Adjust margin-top as needed */
-    margin-bottom: 3rem; /* Adjust margin-bottom as needed */
-    padding: 0 20px; /* Add padding for spacing inside the section */
+    justify-content: center;
+    min-height: 150vh; /* more space so scroll happens inside */
+    margin-top: 20rem;
+    margin-bottom: 3rem;
+    padding: 0 20px;
+    position: relative;
+    background-color: #c5bfb2;
+    overflow: hidden;
 }
 
-#skill-section img {
-    width: 40%; /* Adjust image width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between image and text */
+
+/* Navigation heading */
+.exp-nav {
+    font-size: 2rem;
+    color: #28282b;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
 }
 
-#skill-section div {
-    flex: 1; /* Take remaining space */
+.exp-nav:hover {
+    opacity: 0.7;
 }
+  
+/* TV Outer Body (WIDER) */
+/* TV Outer Body */
+.tv-body {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    background-color: #28282b;
+    border-radius: 20px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    margin: auto;
+  }
+  
+  /* TV Screen with visible scroll */
+  .tv-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #f6f4ee;
+    border-radius: 10px;
+    overflow-y: auto;                /* 👈 Vertical scroll */
+    scroll-behavior: smooth;         /* 👈 Smooth scrolling */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 1rem;
+  }
+  
+/* ___________🖥️ Inside the TV screen (scroll container) */
+.tv-scrollbox {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+  }
+  
+  /* 🔧 Optional scrollbar styling */
+  .tv-scrollbox::-webkit-scrollbar {
+    width: 8px;
+  }
+  .tv-scrollbox::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  .tv-scrollbox::-webkit-scrollbar-track {
+    background: #e0ded8;
+    border-radius: 10px;
+  }
+  
 
-#skill-section h2 {
-    margin-bottom: 10px; /* Space between h2 and p */
-    font-size: 24px; /* Adjust headline font size */
-    transition: font-size 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for font size and text decoration */
-}
+  /* Style scrollbar (optional but cool) */
+  .tv-screen::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .tv-screen::-webkit-scrollbar-track {
+    background: #e0ded8;
+    border-radius: 10px;
+  }
+  
+  .tv-screen::-webkit-scrollbar-thumb {
+    background-color: #a9a49a;
+    border-radius: 10px;
+    border: 2px solid #f6f4ee;
+  }
+  
+  /* Each skill group */
+  .skill-slide {
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+    color: #28282b;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px dashed #999;
+    text-align: center;
+  }
+  
+  
 
-#skill-section h2:hover {
-    font-size: 30px; /* Increase font size on hover */
-    text-decoration: underline; /* Underline text on hover */
-}
+  /* Optional Scanline Overlay______________glitchy thing */
+  .tv-screen::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+    pointer-events: none;
+    z-index: 3;
+    mix-blend-mode: multiply;
+  }
+  
 
-#skill-section p {
-    columns: 2; /* Display content in two columns */
-    column-gap: 20px; /* Adjust gap between columns */
-    margin-top: 0; /* Remove top margin */
-    font-size: 16px; /* Adjust font size */
-    line-height: 1.6; /* Adjust line height */
-}
-#skill-section:hover {
-    border: 2px solid beige; /* Colored border on hover */
-}
 /*_________________________________________________________________________________________________________________________________________________________________________________-*/
 /* Exp section CSS */
+.exp-nav {
+    font-size: 2rem;
+    color: #28282b;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline; /* ← simple underline */
+    transition: opacity 0.3s ease;
+letter-spacing: 1px;
+text-transform: uppercase;
+
+  }
+  
+  .exp-nav:hover {
+    opacity: 0.7;
+  }
+  
+  
 #exp-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-top: 3rem; /* Adjust margin-top as needed */
-    margin-bottom: 3rem; /* Adjust margin-bottom as needed */
-    padding: 0 20px; /* Add padding for spacing inside the section */
-}
-
-#exp-section img {
-    width: 40%; /* Adjust image width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between image and text */
-}
-
-#exp-section div {
-    flex: 1; /* Take remaining space */
-}
-
-#exp-section h2 {
-    margin-bottom: 10px; /* Space between h2 and p */
-    font-size: 24px; /* Adjust headline font size */
-    transition: font-size 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for font size and text decoration */
-}
-#exp-section h2:hover {
-    font-size: 30px; /* Increase font size on hover */
-    text-decoration: underline; /* Underline text on hover */
-}
-
-#exp-section p {
-    margin-top: 0; /* Remove top margin */
-    font-size: 16px; /* Adjust font size */
-    line-height: 1.6; /* Adjust line height */
-}
-#exp-section:hover {
-    border: 2px solid beige; /* Colored border on hover */
-}
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 0 20px;
+  }
+  
+  #exp-section:hover {
+    border: none; /* Remove old hover border for a cleaner card look */
+  }
+  
+  .exp-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    color: #c5bfb2;
+  }
+  
+  /* Card Container */
+  .exp-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+  }
+  
+  /* Flip Card Core */
+  .flip-card {
+    background-color: transparent;
+    width: 240px;
+    height: 320px;
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Card Faces */
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    font-family: 'Playfair Display', serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .flip-card-front {
+    background-color: #28282b;
+    color: #c5bfb2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .company-name {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  /* Back Side */
+  .flip-card-back {
+    background-color: #c5bfb2;
+    color: #28282b;
+    transform: rotateY(180deg);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    border: 1px solid #28282b;
+    opacity: 0.95;
+  }
+  
 /*_________________________________________________________________________________________________________________________________________________________________________________-*/
 /* Hnor section CSS */
 #honor-section {
-    display: flex;
-    align-items: center;
-    margin-top: 3rem; /* Adjust margin-top as needed */
-    margin-bottom: 3rem; /* Adjust margin-bottom as needed */
-    padding: 0 20px; /* Add padding for spacing inside the section */
-}
-
-#honor-section img {
-    width: 40%; /* Adjust image width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between image and text */
-}
-
-#honor-section div {
-    flex: 1; /* Take remaining space */
-}
-
-#honor-section h2 {
-    margin-bottom: 10px; /* Space between h2 and p */
-    font-size: 24px; /* Adjust headline font size */
-    transition: font-size 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for font size and text decoration */
-}
-#honor-section h2:hover {
-    font-size: 30px; /* Increase font size on hover */
-    text-decoration: underline; /* Underline text on hover */
-}
-
-#honor-section p {
-    margin-top: 0; /* Remove top margin */
-    font-size: 16px; /* Adjust font size */
-    line-height: 1.6; /* Adjust line height */
-}
-#honor-section:hover {
-    border: 2px solid beige; /* Colored border on hover */
-}
+    background-color: #c5bfb2;
+    padding: 4rem 2rem;
+    color: #28282b;
+  }
+  
+  .timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 0;
+  }
+  
+  .timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #28282b; /* Dark line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    padding: 1rem 2rem;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+  
+  .timeline-item.left {
+    left: 0;
+    transform: translateX(-80px);
+  }
+  
+  .timeline-item.right {
+    left: 50%;
+    transform: translateX(80px);
+  }
+  
+  .timeline-item .timeline-content {
+    background-color: #28282b; /* Dark card */
+    color: #f6f4ee;            /* Light text */
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #28282b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .timeline-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    color: #f6f4ee;
+  }
+  
+  .timeline-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Appear animation */
+  .timeline-item.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Heading same as Experience */
+  .exp-nav {
+    font-size: 2.2rem;
+    color: #28282b;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
 /*_________________________________________________________________________________________________________________________________________________________________________________-*/
 #contact-section {
     background-image: url("images/lot2.jpg");
     background-size: cover;
-    width: 100%;
-    height: calc(100vh - 165px);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    width: 100vw;                /* FULL SCREEN WIDTH */
+    min-height: 100vh;           /* Take full height if needed */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 3rem;
-    margin-bottom: -2rem;
+
+    padding: 3rem 0;
+    margin: 0;
     color: #d3cbb9;
     position: relative;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center -100px;
+
+    /* REMOVE OUTER GAPS */
+    box-sizing: border-box;
+    overflow: hidden;
+
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: 0;         /* prevent inner padding from pushing */
+    margin-bottom: 0;          /* ensure no outer spacing below */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;/* Prevent horizontal scroll from overflow */
+}
+
+
 
 #contact-section div {
     background-color: rgba(0, 0, 0, 0.7);
